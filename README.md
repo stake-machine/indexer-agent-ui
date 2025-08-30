@@ -62,6 +62,49 @@ pnpm biome:check
 pnpm biome:fix
 ```
 
+### Testing
+
+This project uses Vitest for testing with React Testing Library for component tests.
+
+#### Running Tests
+
+```bash
+# Run all tests
+pnpm test
+
+# Run tests in watch mode
+pnpm test --watch
+
+# Run tests with UI interface (opens in browser)
+pnpm test:ui
+```
+
+#### Test Structure
+
+- **Unit Tests**: Test individual utility functions and helpers
+- **Component Tests**: Test React components in isolation
+- **Test Files**: Located alongside source files with `.test.ts` or `.test.tsx` extensions
+
+Example test locations:
+- `lib/utils.test.ts` - Unit tests for utility functions
+- `components/ui/button.test.tsx` - Component tests for Button
+
+#### Writing Tests
+
+Tests use Vitest APIs with Jest-DOM matchers for enhanced assertions:
+
+```typescript
+import { describe, expect, it } from "vitest";
+import { render, screen } from "@testing-library/react";
+
+describe("MyComponent", () => {
+  it("should render correctly", () => {
+    render(<MyComponent />);
+    expect(screen.getByText("Hello")).toBeInTheDocument();
+  });
+});
+```
+
 ## Support
 
 If you run into any issues while using the Indexer Agent UI, please open an issue in this repository.
