@@ -62,6 +62,29 @@ pnpm biome:check
 pnpm biome:fix
 ```
 
+### Testing
+
+This project uses [Vitest](https://vitest.dev/) for unit and component testing with a comprehensive test setup:
+
+```bash
+# Run tests once
+pnpm test --run
+
+# Run tests in watch mode
+pnpm test
+
+# Run tests with UI
+pnpm test:ui
+```
+
+The test setup includes:
+- **Vitest** with jsdom environment for DOM testing
+- **@testing-library/react** for component testing
+- **@testing-library/jest-dom** for additional matchers
+- Path aliases configured to match the main project (`@/*`)
+
+Test files should be named `*.test.ts` or `*.test.tsx` and can be placed alongside the source files they test.
+
 ## Support
 
 If you run into any issues while using the Indexer Agent UI, please open an issue in this repository.
